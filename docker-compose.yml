@@ -6,14 +6,15 @@ services:
     environment:
       - PORT=7019
     networks:
-      - proxy
+      - mediaflow-proxy_default
     labels:
       - traefik.enable=true
-      - traefik.http.routers.tvvoo.rule=Host(`tvvoo.ton-domaine.fr`)
+      - traefik.docker.network=mediaflow-proxy_default
+      - traefik.http.routers.tvvoo.rule=Host(`tvvoo.ledoque.com`)
       - traefik.http.routers.tvvoo.entrypoints=websecure
       - traefik.http.routers.tvvoo.tls.certresolver=letsencrypt
       - traefik.http.services.tvvoo.loadbalancer.server.port=7019
 
 networks:
-  proxy:
+  mediaflow-proxy_default:
     external: true
