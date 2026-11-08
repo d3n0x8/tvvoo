@@ -24,6 +24,6 @@ RUN touch dist/vavoo_catalog_cache.json
 RUN printf "require('/app/dist/addon.js');\n" > /start \
  && chmod 644 /start
 
-ENV PORT=5000
-EXPOSE 5000
+ENV PORT=7019
+EXPOSE 7019
 CMD ["node", "dist/addon.js"]
